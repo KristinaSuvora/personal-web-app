@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat Alternates', sans-serif;
+            background-color: #f9f6f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: linear-gradient(to bottom, #ffffff, #f3f3f3);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: border 0.2s;
+        }
+        input:focus {
+            border-color: #FF6F61;
+        }
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .color-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s, border 0.2s;
+            border: 2px solid transparent;
+        }
+        .color-box:hover {
+            transform: scale(1.1);
+        }
+        .color-box.selected {
+            border: 2px solid #333;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #FF6F61;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #E55A4F;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form id="registrationForm">
+            <label for="name">Введите ваше имя:</label>
+            <input type="text" id="name" placeholder="Ваше имя" required>
+
+            <label for="color">Выберите цвет:</label>
+            <div class="color-palette" id="colorPalette"></div>
+
+            <label for="dream">Ваша мечта:</label>
+            <input type="text" id="dream" placeholder="Ваша мечта">
+
+            <button type="submit" id="submit">Перейти к приложению</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const colorPalette = document.getElementById('colorPalette');
+            const submitButton = document.getElementById('submit');
+            const nameInput = document.getElementById('name');
+            const dreamInput = document.getElementById('dream');
+            let selectedColor = null;
+
+            // 30 цветов (пастельные, глубокие, полуматовые)
+            const colors = [
+                '#FF6F61', '#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1',
+                '#955251', '#B565A7', '#009B77', '#DD4124', '#45B8AC',
+                '#EFC050', '#5B5EA6', '#9B2335', '#DFCFBE', '#55B4B0',
+                '#E15D44', '#7FCDCD', '#BC243C', '#C3447A', '#98B4D4',
+                '#F6E3C5', '#D5A6BD', '#BE8A60', '#A9B9B7', '#F4A7B9',
+                '#B39EB5', '#DEC5A8', '#AB92B3', '#BFD641', '#D9BF77'
+            ];
+
+            // Создание палитры
+            colors.forEach(color => {
+                const div = document.createElement('div');
+                div.style.backgroundColor = color;
+                div.classList.add('color-box');
+                div.addEventListener('click', () => {
+                    document.querySelectorAll('.color-box').forEach(box => box.classList.remove('selected'));
+                    div.classList.add('selected');
+                    selectedColor = color;
+                });
+                colorPalette.appendChild(div);
+            });
+
+            // Обработка формы
+            submitButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (!nameInput.value) {
+                    alert('Пожалуйста, введите ваше имя.');
+                    return;
+                }
+                if (!selectedColor) {
+                    alert('Пожалуйста, выберите цвет.');
+                    return;
+                }
+                // Сохранение данных и переход
+                localStorage.setItem('userName', nameInput.value);
+                localStorage.setItem('userDream', dreamInput.value || '');
+                localStorage.setItem('userColor', selectedColor);
+                alert('Добро пожаловать, ' + nameInput.value + '!');
+                window.location.href = 'home.html';
+            });
+        });
+    </script>
+</body>
+</html>
