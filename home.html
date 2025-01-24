@@ -133,11 +133,46 @@
     </div>
 
     <div class="widgets">
-        <div class="widget" draggable="true">Напоминания</div>
-        <div class="widget" draggable="true">План на день</div>
-        <div class="widget" draggable="true">Цитата дня</div>
-        <div class="widget" draggable="true">Цель месяца</div>
-        <div class="widget" draggable="true">Счётчик задач</div>
+        <div class="widget" id="reminders">
+            <h3>Напоминания</h3>
+            <p>Ваши ближайшие задачи.</p>
+        </div>
+        <div class="widget" id="daily-plan">
+            <h3>План на день</h3>
+            <p>Ваши задачи на сегодня.</p>
+        </div>
+        <div class="widget" id="quote">
+            <h3>Цитата дня</h3>
+            <p id="quote-text">"Начни свой день с позитивных мыслей!"</p>
+        </div>
+        <div class="widget" id="monthly-goal">
+            <h3>Цель месяца</h3>
+            <p>"Стать лучше в своём деле"</p>
+        </div>
+        <div class="widget" id="task-counter">
+            <h3>Счётчик задач</h3>
+            <p>Выполнено: <span id="tasks-completed">3</span> из <span id="tasks-total">5</span>.</p>
+        </div>
+        <div class="widget" id="mood-tracker">
+            <h3>Трекер настроения</h3>
+            <div class="mood-options">
+                <span class="mood" data-mood="😊">😊</span>
+                <span class="mood" data-mood="😐">😐</span>
+                <span class="mood" data-mood="😔">😔</span>
+            </div>
+        </div>
+        <div class="widget" id="habit-tracker">
+            <h3>Трекер привычек</h3>
+            <ul>
+                <li><input type="checkbox"> Выпить стакан воды</li>
+                <li><input type="checkbox"> Прогулка на свежем воздухе</li>
+                <li><input type="checkbox"> Прочитать 10 страниц</li>
+            </ul>
+        </div>
+        <div class="widget" id="daily-tip">
+            <h3>Совет дня</h3>
+            <p>"Пейте больше воды, чтобы оставаться бодрыми!"</p>
+        </div>
     </div>
 
     <button class="logout" onclick="window.location.href='index.html'">Выход</button>
