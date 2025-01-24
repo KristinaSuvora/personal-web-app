@@ -15,7 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             background: linear-gradient(to bottom, #ffffff, #f4f4f4);
@@ -45,6 +45,7 @@
             border-radius: 8px;
             outline: none;
             font-size: 14px;
+            font-family: 'Montserrat Alternates', sans-serif;
             transition: border 0.2s ease;
         }
         input:focus {
@@ -73,17 +74,16 @@
         button {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(to right, #FF6F61, #FF8567);
+            background: #FF6F61;
             color: white;
             font-weight: bold;
             font-size: 16px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
         }
         button:hover {
-            background: linear-gradient(to right, #FF8567, #FF6F61);
             transform: scale(1.05);
         }
     </style>
@@ -112,14 +112,14 @@
             const dreamInput = document.getElementById('dream');
             let selectedColor = null;
 
-            // 30 цветов (пастельные, глубокие, полуматовые)
+            // "Пыльные", глубокие и полуматовые цвета
             const colors = [
-                '#FF6F61', '#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1',
-                '#955251', '#B565A7', '#009B77', '#DD4124', '#45B8AC',
-                '#EFC050', '#5B5EA6', '#9B2335', '#DFCFBE', '#55B4B0',
-                '#E15D44', '#7FCDCD', '#BC243C', '#C3447A', '#98B4D4',
-                '#F6E3C5', '#D5A6BD', '#BE8A60', '#A9B9B7', '#F4A7B9',
-                '#B39EB5', '#DEC5A8', '#AB92B3', '#BFD641', '#D9BF77'
+                '#8B8680', '#C4AEAD', '#D9CAB3', '#9E8C8E', '#5E514D',
+                '#B2A69A', '#8A817C', '#A39A92', '#6D6864', '#D4C5C5',
+                '#A89D8C', '#C3B4A0', '#857D74', '#C2C0A5', '#949088',
+                '#817D74', '#B9B5AC', '#A4A092', '#8C8979', '#B4B0A4',
+                '#9B9487', '#AAA59B', '#6D645F', '#D2CBBE', '#7A7470',
+                '#5F534C', '#897C7B', '#C9BBB8', '#A59D94', '#6C6661'
             ];
 
             // Создание палитры
@@ -131,10 +131,20 @@
                     document.querySelectorAll('.color-box').forEach(box => box.classList.remove('selected'));
                     div.classList.add('selected');
                     selectedColor = color;
-                    document.body.style.backgroundColor = color; // Применение цвета
+                    document.body.style.backgroundColor = color; // Изменение фона
+                    // Динамическое изменение цвета кнопки
+                    submitButton.style.backgroundColor = color;
+                    submitButton.style.color = getTextColor(color);
                 });
                 colorPalette.appendChild(div);
             });
+
+            // Определение подходящего цвета текста на основе фона
+            function getTextColor(backgroundColor) {
+                const rgb = backgroundColor.match(/\w\w/g).map(x => parseInt(x, 16));
+                const luminance = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+                return luminance > 128 ? '#000000' : '#FFFFFF';
+            }
 
             // Обработка формы
             submitButton.addEventListener('click', (e) => {
@@ -151,7 +161,6 @@
                 localStorage.setItem('userName', nameInput.value);
                 localStorage.setItem('userDream', dreamInput.value || '');
                 localStorage.setItem('userColor', selectedColor);
-                alert('Добро пожаловать, ' + nameInput.value + '!');
                 window.location.href = 'home.html';
             });
         });
