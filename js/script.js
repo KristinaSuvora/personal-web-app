@@ -12,3 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         colorPalette.appendChild(div);
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const userColor = localStorage.getItem('userColor');
+    if (userColor) {
+        document.body.style.backgroundColor = userColor;
+    }
+});
