@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Персональное веб-приложение</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat Alternates', sans-serif;
             transition: background-color 0.3s;
+            background-color: #f9f6f1;
+            color: #333;
         }
 
         .container {
@@ -17,48 +20,96 @@
             padding: 20px;
         }
 
-        .hidden {
-            display: none;
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #444;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        input, button, textarea {
+            display: block;
+            margin-bottom: 20px;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+
+        input:focus, textarea:focus, button:focus {
+            outline: none;
+            border-color: #9e8cdb;
+            box-shadow: 0 0 5px rgba(158, 140, 219, 0.5);
+        }
+
+        button {
+            background-color: #9e8cdb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #816bb1;
         }
 
         .menu {
             display: flex;
             justify-content: space-around;
-            background: rgba(0, 0, 0, 0.1);
+            background: white;
+            border-bottom: 2px solid #f0efeb;
             padding: 10px;
             position: sticky;
             top: 0;
+            z-index: 1000;
         }
 
         .menu-item {
             cursor: pointer;
+            padding: 5px 10px;
+            font-size: 1em;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
         }
 
         .menu-item:hover {
-            text-decoration: underline;
+            color: #9e8cdb;
+            border-bottom: 2px solid #9e8cdb;
+        }
+
+        .hidden {
+            display: none;
         }
 
         .section {
             margin-top: 20px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input, button, textarea {
-            display: block;
-            margin-bottom: 20px;
-            padding: 10px;
-            width: 100%;
+        textarea {
+            resize: none;
+            height: 100px;
         }
     </style>
 </head>
 <body>
 
 <div class="container" id="registrationPage">
-    <h1>Регистрация</h1>
+    <h1>Добро пожаловать!</h1>
     <label for="name">Ваше имя:</label>
     <input type="text" id="name" placeholder="Введите ваше имя">
 
