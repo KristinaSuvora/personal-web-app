@@ -7,7 +7,7 @@
 
 .widget {
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
@@ -20,35 +20,72 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Уникальные стили для каждого виджета */
-.widget-reminders {
+#reminders {
     background-color: #f8e5e5;
     color: #a94442;
-    font-size: 18px;
 }
 
-.widget-day-plan {
+#daily-plan {
     background-color: #e5f4f8;
     color: #31708f;
-    font-size: 18px;
 }
 
-.widget-quote {
+#quote {
     background-color: #f8f8e5;
     color: #8a6d3b;
-    font-size: 18px;
     font-style: italic;
 }
 
-.widget-month-goal {
+#monthly-goal {
     background-color: #e5f8e5;
     color: #3c763d;
-    font-size: 18px;
     font-weight: bold;
 }
 
-.widget-task-counter {
+#task-counter {
     background-color: #e5e5f8;
     color: #4a4a94;
-    font-size: 18px;
+}
+
+#mood-tracker {
+    background-color: #f5e5f8;
+    color: #8e44ad;
+}
+
+.mood-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.mood {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mood:hover {
+    transform: scale(1.2);
+}
+
+#habit-tracker {
+    background-color: #f8f5e5;
+    color: #d35400;
+}
+
+#habit-tracker ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#habit-tracker li {
+    text-align: left;
+    margin: 5px 0;
+}
+
+#daily-tip {
+    background-color: #e5f8f5;
+    color: #16a085;
+    font-style: italic;
 }
