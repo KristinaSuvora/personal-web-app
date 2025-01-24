@@ -1,20 +1,36 @@
 
 body {
-    font-family: 'Montserrat Alternates', sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
     background-color: #f9f6f1;
 }
 .container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-h1, h2 {
+h1 {
     font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    background-color: #FF6F61;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #E55A4F;
 }
 .color-palette {
     display: grid;
@@ -25,22 +41,8 @@ h1, h2 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    cursor: pointer;
+    border: 2px solid transparent;
 }
-.menu {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background: white;
-}
-.widgets {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-.widget {
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.color-box:hover {
+    border: 2px solid black;
 }
