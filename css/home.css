@@ -1,55 +1,39 @@
 .widgets {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin: 20px;
+    margin: 40px 20px;
+    justify-content: center;
 }
 
 .widget {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Белый фон */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Тонкая рамка */
+    border-radius: 12px; /* Закруглённые углы */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Тени */
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: grab;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .widget:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Лёгкий подъём при наведении */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
 }
 
-#reminders {
-    background-color: #f8e5e5;
-    color: #a94442;
+.widget h3 {
+    font-size: 20px;
+    color: #333333;
+    margin-bottom: 10px;
 }
 
-#daily-plan {
-    background-color: #e5f4f8;
-    color: #31708f;
-}
-
-#quote {
-    background-color: #f8f8e5;
-    color: #8a6d3b;
-    font-style: italic;
-}
-
-#monthly-goal {
-    background-color: #e5f8e5;
-    color: #3c763d;
-    font-weight: bold;
-}
-
-#task-counter {
-    background-color: #e5e5f8;
-    color: #4a4a94;
-}
-
-#mood-tracker {
-    background-color: #f5e5f8;
-    color: #8e44ad;
+.widget p {
+    font-size: 16px;
+    color: #666666;
 }
 
 .mood-options {
@@ -67,11 +51,7 @@
 
 .mood:hover {
     transform: scale(1.2);
-}
-
-#habit-tracker {
-    background-color: #f8f5e5;
-    color: #d35400;
+    color: #ff6b6b; /* Яркий цвет при наведении */
 }
 
 #habit-tracker ul {
@@ -85,7 +65,6 @@
 }
 
 #daily-tip {
-    background-color: #e5f8f5;
-    color: #16a085;
     font-style: italic;
+    color: #16a085;
 }
