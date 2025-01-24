@@ -7,9 +7,9 @@
 }
 
 .widget {
-    background-color: rgba(255, 255, 255, 0.8); /* Лёгкая прозрачность */
+    background-color: rgba(255, 255, 255, 0.5); /* Лёгкая прозрачность */
     border: 1px solid rgba(0, 0, 0, 0.1); /* Внешняя рамка */
-    border-radius: 12px; /* Закруглённые углы */
+    border-radius: 12px; /* Закругленные углы */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Тени */
     padding: 20px;
     text-align: center;
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    backdrop-filter: blur(10px); /* Размытие фона */
 }
 
 .widget::before {
@@ -28,7 +29,7 @@
     bottom: 10px;
     left: 10px;
     right: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Внутренняя рамка */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Внутренняя рамка */
     border-radius: 8px; /* Следуем за закруглением основного виджета */
     pointer-events: none; /* Чтобы рамка не мешала кликам */
 }
