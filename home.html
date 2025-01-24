@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя страница</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/home.js" defer></script>
+</head>
+<body>
+    <div class="menu">
+        <div class="menu-logo"><img src="assets/images/home-icon.svg" alt="Дом"></div>
+        <div class="menu-items">
+            <a href="planner.html" class="menu-item">Планер</a>
+            <a href="places.html" class="menu-item">Куда сходить</a>
+            <a href="short-trips.html" class="menu-item">Ближайшие путешествия</a>
+            <a href="long-trips.html" class="menu-item">Дальние путешествия</a>
+            <a href="talk.html" class="menu-item">Я хочу поговорить</a>
+        </div>
+        <button id="logout" class="logout">Выйти</button>
+    </div>
+    <div class="widgets">
+        <div class="widget">
+            <h2>Напоминания</h2>
+            <p>Здесь будут ваши напоминания.</p>
+        </div>
+        <div class="widget">
+            <h2>План на день</h2>
+            <p>Ваши задачи на сегодня.</p>
+        </div>
+        <div class="widget">
+            <h2>Цитата дня</h2>
+            <p>«Секрет успеха в том, чтобы начать.»</p>
+        </div>
+        <div class="widget">
+            <h2>Цель месяца</h2>
+            <p>Мечта: <span id="user-dream"></span></p>
+        </div>
+        <div class="widget">
+            <h2>Счётчик задач</h2>
+            <p>Выполнено: <span id="task-counter">0</span></p>
+        </div>
+    </div>
+</body>
+</html>
