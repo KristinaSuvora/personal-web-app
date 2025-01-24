@@ -78,6 +78,25 @@
             cursor: grabbing;
             transform: scale(1.05);
         }
+        .logout {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Montserrat Alternates', sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .logout:hover {
+            transform: scale(1.05);
+            background-color: #e55a4d;
+        }
     </style>
 </head>
 <body>
@@ -120,7 +139,8 @@
         <div class="widget" draggable="true">Цель месяца</div>
         <div class="widget" draggable="true">Счётчик задач</div>
     </div>
-<button class="logout" onclick="window.location.href='index.html'">Выход</button>
+
+    <button class="logout" onclick="window.location.href='index.html'">Выход</button>
 
     <script>
         document.querySelectorAll('.widget').forEach(widget => {
@@ -143,4 +163,3 @@
     <script src="js/script.js"></script>
 </body>
 </html>
-
