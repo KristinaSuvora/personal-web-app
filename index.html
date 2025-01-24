@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональное веб-приложение</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+
+        .menu-item {
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, button, textarea {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="registrationPage">
+    <h1>Регистрация</h1>
+    <label for="name">Ваше имя:</label>
+    <input type="text" id="name" placeholder="Введите ваше имя">
+
+    <label for="color">Ваш любимый цвет:</label>
+    <input type="color" id="color">
+
+    <label for="dream">Ваша мечта:</label>
+    <textarea id="dream" rows="4" placeholder="Напишите вашу мечту..."></textarea>
+
+    <button id="submit">Перейти в меню</button>
+</div>
+
+<div class="container hidden" id="menuPage">
+    <nav class="menu">
+        <div class="menu-item" data-section="planner">Планер</div>
+        <div class="menu-item" data-section="places">Куда сходить</div>
+        <div class="menu-item" data-section="shortTrips">Ближайшие путешествия</div>
+        <div class="menu-item" data-section="longTrips">Дальние путешествия</div>
+        <div class="menu-item" data-section="talk">Я хочу поговорить</div>
+    </nav>
+
+    <div class="section" id="planner">
+        <h2>Планер</h2>
+        <p>Разделы: Мой год, Текущий месяц, Неделя</p>
+    </div>
+
+    <div class="section hidden" id="places">
+        <h2>Куда сходить</h2>
+        <p>Добавьте места для посещения в вашем городе.</p>
+        <textarea rows="4" placeholder="Например: кафе, парк, музей..."></textarea>
+        <button>Сохранить</button>
+    </div>
+
+    <div class="section hidden" id="shortTrips">
+        <h2>Ближайшие путешествия</h2>
+        <p>Планы на путешествия длиной в 1-2 дня.</p>
+        <textarea rows="4" placeholder="Ваши планы..."></textarea>
+        <button>Сохранить</button>
+    </div>
+
+    <div class="section hidden" id="longTrips">
+        <h2>Дальние путешествия</h2>
+        <p>Планы на путешествия длиной в 5-14 дней.</p>
+        <textarea rows="4" placeholder="Ваши планы..."></textarea>
+        <button>Сохранить</button>
+    </div>
+
+    <div class="section hidden" id="talk">
+        <h2>Я хочу поговорить</h2>
+        <p>Чат с психологом или пользователями.</p>
+        <textarea rows="4" placeholder="Напишите ваше сообщение..."></textarea>
+        <button>Отправить</button>
+    </div>
+</div>
+
+<script>
+    const registrationPage = document.getElementById('registrationPage');
+    const menuPage = document.getElementById('menuPage');
+    const submitButton = document.getElementById('submit');
+    const colorInput = document.getElementById('color');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const sections = document.querySelectorAll('.section');
+
+    submitButton.addEventListener('click', () => {
+        const favoriteColor = colorInput.value;
+        document.body.style.backgroundColor = favoriteColor;
+        registrationPage.classList.add('hidden');
+        menuPage.classList.remove('hidden');
+    });
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetSection = item.getAttribute('data-section');
+            sections.forEach(section => {
+                if (section.id === targetSection) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
