@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -15,18 +15,20 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            transition: background-color 0.3s ease;
         }
         .container {
-            background: linear-gradient(to bottom, #ffffff, #f3f3f3);
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to bottom, #ffffff, #f4f4f4);
+            border-radius: 16px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             padding: 40px;
-            width: 400px;
+            width: 420px;
         }
         h1 {
             font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 28px;
             color: #333;
         }
         label {
@@ -37,12 +39,13 @@
         }
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 8px;
             outline: none;
-            transition: border 0.2s;
+            font-size: 14px;
+            transition: border 0.2s ease;
         }
         input:focus {
             border-color: #FF6F61;
@@ -50,7 +53,7 @@
         .color-palette {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 20px;
         }
         .color-box {
@@ -69,17 +72,19 @@
         }
         button {
             width: 100%;
-            padding: 12px;
-            background-color: #FF6F61;
+            padding: 14px;
+            background: linear-gradient(to right, #FF6F61, #FF8567);
             color: white;
             font-weight: bold;
+            font-size: 16px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
         button:hover {
-            background-color: #E55A4F;
+            background: linear-gradient(to right, #FF8567, #FF6F61);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -126,6 +131,7 @@
                     document.querySelectorAll('.color-box').forEach(box => box.classList.remove('selected'));
                     div.classList.add('selected');
                     selectedColor = color;
+                    document.body.style.backgroundColor = color; // Применение цвета
                 });
                 colorPalette.appendChild(div);
             });
