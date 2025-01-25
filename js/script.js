@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.classList.add('color-box');
         div.addEventListener('click', () => {
             document.body.style.backgroundColor = color;
+            localStorage.setItem('userColor', color); // Сохраняем цвет в localStorage
         });
         colorPalette.appendChild(div);
     });
