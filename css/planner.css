@@ -18,10 +18,11 @@ body {
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 10px 20px;
     width: calc(100% - 40px); /* Учитываем отступы */
     box-sizing: border-box;
     height: 150px; /* Фиксированная высота блока */
+    transition: height 0.3s ease, padding 0.3s ease; /* Плавное изменение высоты и отступов */
     overflow: hidden; /* Скрытие содержимого за пределами блока */
     transition: max-height 0.3s ease;
 }
@@ -43,11 +44,15 @@ body {
     line-height: 1.6;
     opacity: 0;
     transition: opacity 0.3s ease;
+    height: 0; /* По умолчанию скрыто */
+    overflow: hidden; /* Скрываем содержимое, если блок закрыт */
 }
 
 .section.open .section-content {
     display: block;
     opacity: 1;
+    height: auto; /* Высота по содержимому, если открыто */
+    padding-top: 10px;
 }
 
 .section.open {
