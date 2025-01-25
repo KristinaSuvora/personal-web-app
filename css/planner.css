@@ -1,29 +1,29 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+    background-color: #f8f1ea;
+}
 
 .planner-sections {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    margin-top: 60px; /* Отступ от меню */
+    width: 100%; /* На всю ширину страницы */
 }
+
 .section {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    width: calc(100% - 40px); /* Растянуть на всю ширину с учетом отступов */
-    box-sizing: border-box; /* Учитывать padding в ширину */
-    height: 80px; /* Фиксированная высота */
-    display: flex;
-    align-items: center; /* Вертикальное выравнивание содержимого */
-    justify-content: space-between; /* Распределение содержимого */
-    cursor: pointer;
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-
-.section.open {
-    height: 200px; /* Высота при открытии */
+    padding: 10px;
+    width: calc(100% - 40px); /* Учитываем отступы */
+    box-sizing: border-box;
+    height: 150px; /* Фиксированная высота блока */
+    overflow: hidden; /* Скрытие содержимого за пределами блока */
+    transition: max-height 0.3s ease;
 }
 
 .section h2 {
@@ -34,19 +34,24 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    flex: 1;
 }
 
 .section-content {
-    display: none;
+    display: none; /* Скрыто по умолчанию */
+    margin-top: 10px;
     font-size: 14px;
     line-height: 1.6;
-    margin-top: 10px;
-    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .section.open .section-content {
     display: block;
+    opacity: 1;
+}
+
+.section.open {
+    height: 150px; /* Блок остается фиксированного размера */
 }
 
 span.arrow {
