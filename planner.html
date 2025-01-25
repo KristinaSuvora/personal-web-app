@@ -16,8 +16,9 @@
         .planner-sections {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
             padding: 20px;
+            margin-top: 60px; /* Отступ от меню */
         }
         .section {
             border: 1px solid #ccc;
@@ -25,7 +26,7 @@
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 10px 20px;
-            width: 100%; /* Растянуть на всю ширину */
+            width: calc(100% - 40px); /* Растянуть на всю ширину с учетом отступов */
             box-sizing: border-box; /* Учитывать padding в ширину */
         }
         .section h2 {
