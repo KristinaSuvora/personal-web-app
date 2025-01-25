@@ -102,99 +102,55 @@
 </head>
 <body>
     <div class="menu">
-        <div class="menu-item">Планер
-            <div class="submenu">
-                <a href="planner.html">Мой год</a>
-                <a href="planner.html">Текущий месяц</a>
-                <a href="planner.html">Неделя</a>
-            </div>
-        </div>
-        <div class="menu-item">Куда сходить
-            <div class="submenu">
-                <a href="places.html">Развлечения</a>
-                <a href="places.html">Культура</a>
-            </div>
-        </div>
-        <div class="menu-item">Ближайшие путешествия
-            <div class="submenu">
-                <a href="short-trips.html">Добавить маршрут</a>
-            </div>
-        </div>
-        <div class="menu-item">Дальние путешествия
-            <div class="submenu">
-                <a href="long-trips.html">Планы на отпуск</a>
-            </div>
-        </div>
-        <div class="menu-item">Я хочу поговорить
-            <div class="submenu">
-                <a href="talk.html">Чат</a>
-                <a href="talk.html">AI-психолог</a>
-            </div>
-        </div>
+        <div class="menu-item" data-page="home">Домой</div>
+        <div class="menu-item" data-page="planner">Планер</div>
+        <div class="menu-item" data-page="places">Куда сходить</div>
+        <div class="menu-item" data-page="short-trips">Ближайшие путешествия</div>
+        <div class="menu-item" data-page="long-trips">Дальние путешествия</div>
+        <div class="menu-item" data-page="talk">Я хочу поговорить</div>
     </div>
 
-    <div class="widgets">
-        <div class="widget" id="reminders">
-            <h3>Напоминания</h3>
-            <p>Ваши ближайшие задачи.</p>
-        </div>
-        <div class="widget" id="daily-plan">
-            <h3>План на день</h3>
-            <p>Ваши задачи на сегодня.</p>
-        </div>
-        <div class="widget" id="quote">
-            <h3>Цитата дня</h3>
-            <p id="quote-text">"Начни свой день с позитивных мыслей!"</p>
-        </div>
-        <div class="widget" id="monthly-goal">
-            <h3>Цель месяца</h3>
-            <p>"Стать лучше в своём деле"</p>
-        </div>
-        <div class="widget" id="task-counter">
-            <h3>Счётчик задач</h3>
-            <p>Выполнено: <span id="tasks-completed">3</span> из <span id="tasks-total">5</span>.</p>
-        </div>
-        <div class="widget" id="mood-tracker">
-            <h3>Трекер настроения</h3>
-            <div class="mood-options">
-                <span class="mood" data-mood="😊">😊</span>
-                <span class="mood" data-mood="😐">😐</span>
-                <span class="mood" data-mood="😔">😔</span>
+    <!-- Контейнер для контента -->
+    <div id="content">
+        <div class="widgets">
+            <div class="widget" id="reminders">
+                <h3>Напоминания</h3>
+                <p>Ваши ближайшие задачи.</p>
             </div>
-        </div>
-        <div class="widget" id="habit-tracker">
-            <h3>Трекер привычек</h3>
-            <ul>
-                <li><input type="checkbox"> Выпить стакан воды</li>
-                <li><input type="checkbox"> Прогулка на свежем воздухе</li>
-                <li><input type="checkbox"> Прочитать 10 страниц</li>
-            </ul>
-        </div>
-        <div class="widget" id="daily-tip">
-            <h3>Совет дня</h3>
-            <p>"Пейте больше воды, чтобы оставаться бодрыми!"</p>
+            <div class="widget" id="daily-plan">
+                <h3>План на день</h3>
+                <p>Ваши задачи на сегодня.</p>
+            </div>
+            <div class="widget" id="quote">
+                <h3>Цитата дня</h3>
+                <p id="quote-text">"Начни свой день с позитивных мыслей!"</p>
+            </div>
+            <div class="widget" id="monthly-goal">
+                <h3>Цель месяца</h3>
+                <p>"Стать лучше в своём деле"</p>
+            </div>
         </div>
     </div>
 
     <button class="logout" onclick="window.location.href='index.html'">Выход</button>
 
     <script>
-        document.querySelectorAll('.widget').forEach(widget => {
-            widget.addEventListener('dragstart', e => {
-                e.dataTransfer.setData('text/plain', e.target.id);
-            });
-
-            widget.addEventListener('dragover', e => {
-                e.preventDefault();
-            });
-
-            widget.addEventListener('drop', e => {
-                e.preventDefault();
-                const id = e.dataTransfer.getData('text');
-                const draggedElement = document.getElementById(id);
-                e.target.insertAdjacentElement('beforebegin', draggedElement);
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const page = item.getAttribute('data-page');
+                loadPage(page);
             });
         });
+
+        function loadPage(page) {
+            const content = document.getElementById('content');
+            fetch(`${page}.html`)
+                .then(response => response.text())
+                .then(data => {
+                    content.innerHTML = data;
+                })
+                .catch(err => console.error('Ошибка загрузки страницы:', err));
+        }
     </script>
     <script src="js/script.js"></script>
 </body>
