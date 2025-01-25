@@ -4,31 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Планер</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css"> <!-- Общий стиль для всех страниц -->
     <link rel="stylesheet" href="css/planner.css"> <!-- Дополнительный стиль для планера -->
     <style>
-        .section {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .section h2 {
+        body {
             margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f1ea;
+        }
+        .planner-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .section-header {
+            width: 100%;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            font-weight: 400; /* Меняем на более легкий стиль */
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        .section-header:hover {
+            background-color: #f0f0f0;
+        }
         .section-content {
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none;
-            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.6;
         }
         .section.open .section-content {
             display: block;
+        }
+        .arrow {
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .section.open .arrow {
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -57,23 +86,31 @@
 
     <!-- Содержимое страницы -->
     <div class="planner-sections">
-        <h1>Планер</h1>
         <div class="section" id="year">
-            <h2>Мой год <span>&#9654;</span></h2>
+            <div class="section-header">
+                Мой год
+                <span class="arrow">▼</span>
+            </div>
             <div class="section-content">
                 <p>(В разработке)</p>
             </div>
         </div>
         <div class="section" id="month">
-            <h2>Текущий месяц <span>&#9654;</span></h2>
+            <div class="section-header">
+                Текущий месяц
+                <span class="arrow">▼</span>
+            </div>
             <div class="section-content">
-                <p>Здесь будет информация о текущем месяце</p>
+                <p>Здесь будет информация о текущем месяце.</p>
             </div>
         </div>
         <div class="section open" id="week">
-            <h2>Неделя <span>&#9660;</span></h2>
+            <div class="section-header">
+                Неделя
+                <span class="arrow">▼</span>
+            </div>
             <div class="section-content">
-                <p>Здесь будет информация о текущей неделе</p>
+                <p>Здесь будет информация о текущей неделе.</p>
             </div>
         </div>
     </div>
@@ -102,3 +139,4 @@
     </script>
 </body>
 </html>
+
