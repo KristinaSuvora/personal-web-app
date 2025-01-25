@@ -17,7 +17,7 @@ body {
 }
 
 .widget {
-    background-color: rgba(255, 255, 255, 0.5); /* Лёгкая прозрачность */
+    background-color: rgba(255, 255, 255, 1.5); /* Лёгкая прозрачность */
     border: 1px solid rgba(0, 0, 0, 0.1); /* Внешняя рамка */
     border-radius: 12px; /* Закругленные углы */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Тени */
@@ -25,7 +25,7 @@ body {
     text-align: center;
     position: relative; /* Для размещения рамки внутри */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Montserrat Alternates', serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
