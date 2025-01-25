@@ -1,19 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Планер</title>
-    <link rel="stylesheet" href="css/planner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css"> <!-- Общий стиль для всех страниц -->
+    <link rel="stylesheet" href="css/planner.css"> <!-- Дополнительный стиль для планера -->
 </head>
 <body>
-    <h1>Планер</h1>
-    <div class="planner-sections">
-        <section id="year">Мой год (в разработке)</section>
-        <section id="month">Текущий месяц</section>
-        <section id="week">Неделя</section>
+    <!-- Главное меню -->
+    <div class="menu">
+        <div class="menu-item">
+            <a href="home.html">Главная</a>
+        </div>
+        <div class="menu-item">Планер
+            <div class="submenu">
+                <a href="#year">Мой год</a>
+                <a href="#month">Текущий месяц</a>
+                <a href="#week">Неделя</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="places.html">Куда сходить</a>
+        </div>
+        <div class="menu-item">
+            <a href="short-trips.html">Ближайшие путешествия</a>
+        </div>
+        <div class="menu-item">
+            <a href="long-trips.html">Дальние путешествия</a>
+        </div>
+        <div class="menu-item">
+            <a href="talk.html">Я хочу поговорить</a>
+        </div>
     </div>
-   <script src="js/script.js"></script> 
+
+    <!-- Содержимое страницы -->
+    <div class="planner-sections">
+        <h1>Планер</h1>
+        <section id="year">
+            <h2>Мой год</h2>
+            <p>(В разработке)</p>
+        </section>
+        <section id="month">
+            <h2>Текущий месяц</h2>
+            <p>Здесь будет информация о текущем месяце</p>
+        </section>
+        <section id="week">
+            <h2>Неделя</h2>
+            <p>Здесь будет информация о текущей неделе</p>
+        </section>
+    </div>
+
+    <!-- Кнопка выхода -->
+    <button class="logout" onclick="window.location.href='index.html'">Выход</button>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
