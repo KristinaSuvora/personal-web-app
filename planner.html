@@ -5,85 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Планер</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/home.css">
-    <style>
-        .planner-sections {
-            display: none; /* Скрываем разделы по умолчанию */
-            margin-top: 80px;
-        }
-
-        .planner-sections.active {
-            display: block; /* Отображаем только активный раздел */
-        }
-
-        .planner-content {
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="css/home.css"> <!-- Общий стиль для всех страниц -->
+    <link rel="stylesheet" href="css/planner.css"> <!-- Дополнительный стиль для планера -->
 </head>
 <body>
     <!-- Главное меню -->
     <div class="menu">
-        <div class="menu-item" data-target="year">Мой год</div>
-        <div class="menu-item" data-target="month">Текущий месяц</div>
-        <div class="menu-item" data-target="week">Неделя</div>
         <div class="menu-item">
-            <a href="home.html">Вернуться на главную</a>
+            <a href="home.html">Главная</a>
+        </div>
+        <div class="menu-item">Планер
+            <div class="submenu">
+                <a href="#year">Мой год</a>
+                <a href="#month">Текущий месяц</a>
+                <a href="#week">Неделя</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="places.html">Куда сходить</a>
+        </div>
+        <div class="menu-item">
+            <a href="short-trips.html">Ближайшие путешествия</a>
+        </div>
+        <div class="menu-item">
+            <a href="long-trips.html">Дальние путешествия</a>
+        </div>
+        <div class="menu-item">
+            <a href="talk.html">Я хочу поговорить</a>
         </div>
     </div>
 
     <!-- Содержимое страницы -->
-    <div class="planner-sections" id="year">
-        <div class="planner-content">
+    <div class="planner-sections">
+        <h1>Планер</h1>
+        <section id="year">
             <h2>Мой год</h2>
             <p>(В разработке)</p>
-        </div>
-    </div>
-    <div class="planner-sections" id="month">
-        <div class="planner-content">
+        </section>
+        <section id="month">
             <h2>Текущий месяц</h2>
-            <p>Информация о текущем месяце</p>
-        </div>
-    </div>
-    <div class="planner-sections" id="week">
-        <div class="planner-content">
+            <p>Здесь будет информация о текущем месяце</p>
+        </section>
+        <section id="week">
             <h2>Неделя</h2>
-            <p>Информация о текущей неделе</p>
-        </div>
+            <p>Здесь будет информация о текущей неделе</p>
+        </section>
     </div>
 
+    <!-- Кнопка выхода -->
     <button class="logout" onclick="window.location.href='index.html'">Выход</button>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Получаем элементы меню и секции
-            const menuItems = document.querySelectorAll('.menu-item[data-target]');
-            const sections = document.querySelectorAll('.planner-sections');
-
-            // Обработчик клика по пункту меню
-            menuItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const target = item.getAttribute('data-target');
-
-                    // Скрываем все секции
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-
-                    // Отображаем нужную секцию
-                    const targetSection = document.getElementById(target);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                    }
-                });
-            });
-
-            // Отображаем первую секцию по умолчанию
-            sections[0].classList.add('active');
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
