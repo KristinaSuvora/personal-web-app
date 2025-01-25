@@ -25,7 +25,7 @@ body {
     text-align: center;
     position: relative; /* Для размещения рамки внутри */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat Alternates', serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
