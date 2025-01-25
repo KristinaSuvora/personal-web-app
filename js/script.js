@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         colorPalette.appendChild(div);
     });
-
-    // Ваш существующий код для сохранения цвета
+// Ваш существующий код для сохранения цвета
+    document.addEventListener('DOMContentLoaded', () => {
     const userColor = localStorage.getItem('userColor');
     if (userColor) {
         document.body.style.backgroundColor = userColor;
