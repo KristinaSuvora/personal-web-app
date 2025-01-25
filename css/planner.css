@@ -5,9 +5,55 @@
     gap: 20px;
     padding: 20px;
 }
-section {
-    background: white;
+.section {
+    border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    width: calc(100% - 40px); /* Растянуть на всю ширину с учетом отступов */
+    box-sizing: border-box; /* Учитывать padding в ширину */
+    height: 80px; /* Фиксированная высота */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание содержимого */
+    justify-content: space-between; /* Распределение содержимого */
+    cursor: pointer;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.section.open {
+    height: 200px; /* Высота при открытии */
+}
+
+.section h2 {
+    margin: 0;
+    font-size: 18px; /* Уменьшенный размер текста */
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+}
+
+.section-content {
+    display: none;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.section.open .section-content {
+    display: block;
+}
+
+span.arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.section.open span.arrow {
+    transform: rotate(180deg); /* Поворот стрелки */
 }
