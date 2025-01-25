@@ -116,24 +116,15 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.section');
-
-            sections.forEach(section => {
-                const header = section.querySelector('h2');
-                header.addEventListener('click', () => {
-                    const isOpen = section.classList.contains('open');
-
-                    sections.forEach(sec => {
-                        sec.classList.remove('open');
-                        sec.querySelector('span').textContent = '\u25B6'; // Стрелка вправо
-                    });
-
-                    if (!isOpen) {
-                        section.classList.add('open');
-                        header.querySelector('span').textContent = '\u25BC'; // Стрелка вниз
-                    }
-                });
+        // Скрипт для управления открытием и закрытием разделов
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                const isOpen = section.classList.contains('open');
+                document.querySelectorAll('.section').forEach(sec => sec.classList.remove('open'));
+                if (!isOpen) {
+                    section.classList.add('open');
+                }
             });
         });
     </script>
